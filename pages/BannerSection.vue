@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, useHead } from '#imports'
+import { onMounted, onUnmounted, ref, useHead } from '#imports'
 import BackgroundImageUrl from '@/assets/image/banner-bg.webp?url'
 import DishesImageUrl from '@/assets/image/dishes.webp?url'
 import LogoSvg from '@/assets/image/logo.svg'
@@ -12,13 +12,39 @@ useHead({
 })
 
 const mountElm = ref()
+let player: YT.Player | undefined
+
+const videoSizeRatio = 560 / 315
+
+let timeoutId = 0
+function resizeVideo() {
+  clearTimeout(timeoutId)
+  timeoutId = window.setTimeout(() => {
+    if (!player) {
+      return
+    }
+    const minWidth = window.innerHeight * videoSizeRatio
+    // The idea of hiding video information is to expand the width so that the information will be outside the viewport.
+    // So here we multiply by 3 and then translate it back to the center, therefor the information will be hidden on the left and right outside the container.
+    const totalWidth = minWidth * 3
+    const centerOffset = (totalWidth - window.innerWidth) / 2
+
+    // If the viewport is wider than the video width, black blocks will appear on the left and right sides,
+    // so here we calculate the scale to fullfill the container.
+    const scale = window.innerWidth > minWidth ? window.innerWidth / minWidth : 1
+
+    const iframe = player.getIframe()
+    iframe.style.width = totalWidth + 'px'
+    iframe.style.transform = `translateX(-${centerOffset}px) scale(${scale})`
+  }, 20)
+}
 
 onMounted((() => {
   if (!YT || !mountElm.value) {
     return
   }
 
-  const player = new YT.Player(mountElm.value, {
+  player = new YT.Player(mountElm.value, {
     videoId: '8_4JRK4QkqU',
     // https://developers.google.com/youtube/player_parameters?hl=zh-tw
     playerVars: {
@@ -33,52 +59,31 @@ onMounted((() => {
     },
     events: {
       onReady() {
-        calculateSize()
+        resizeVideo()
       },
       onStateChange: ({ data }) => {
         if (data === YT.PlayerState.PLAYING) {
-          player.getIframe().classList.add('opacity-100')
+          player?.getIframe().classList.add('opacity-100')
         }
         if (data === YT.PlayerState.PAUSED) {
-          player.playVideo()
+          player?.playVideo()
         }
       }
     }
   })
 
-  const ratio = 560 / 315
-  let timeoutId = 0
-  function calculateSize() {
-    clearTimeout(timeoutId)
-    timeoutId = window.setTimeout(() => {
-      const minWidth = window.innerHeight * ratio
-      // The idea of hiding video information is to expand the width so that the information will be outside the viewport.
-      // So here we multiply by 3 and then translate it back to the center, so the information will be hidden on the left and right outside the container.
-      const totalWidth = minWidth * 3
-      const centerOffset = (totalWidth - window.innerWidth) / 2
-
-      // If the viewport is wider than the video width, black blocks will appear on the left and right sides,
-      // so we need to calculate the ratio to fullfill the container.
-      const scale = window.innerWidth > minWidth ? window.innerWidth / minWidth : 1
-
-      const iframe = player.getIframe()
-      iframe.style.width = totalWidth + 'px'
-      iframe.style.transform = `translateX(-${centerOffset}px) scale(${scale})`
-    }, 20)
-  }
-
-  window.addEventListener('resize', calculateSize)
-
-  return () => {
-    window.removeEventListener('resize', calculateSize)
-    player.destroy()
-  }
+  window.addEventListener('resize', resizeVideo)
 }))
+
+onUnmounted(() => {
+  player?.destroy()
+  window.removeEventListener('resize', resizeVideo)
+})
 </script>
 
 <template>
   <section
-    class="relative h-screen bg-cover bg-fixed bg-center px-6 py-28 lg:py-36"
+    class="relative h-dvh bg-cover bg-fixed bg-center px-6 py-28 lg:py-36"
     :style="`background-image: url('${BackgroundImageUrl}')`"
   >
     <div class="pointer-events-none absolute left-0 top-0 size-full overflow-hidden">
@@ -87,6 +92,8 @@ onMounted((() => {
         class="h-full opacity-0 transition-opacity duration-[2000ms]"
       />
     </div>
+
+    <div class="absolute left-0 top-0 size-full bg-[rgba(0,0,0,0.5)]" />
 
     <div class="absolute left-0 top-0 flex size-full flex-col items-start text-white">
       <div class="absolute top-1/2  hidden -translate-x-1/3 -rotate-90 items-center gap-10 font-bold leading-5 tracking-[0.14em] md:flex">
