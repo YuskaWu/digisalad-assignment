@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import Header from '~/components/NavBar.vue'
+import PageHeader from '~/components/PageHeader.vue'
 </script>
 
 <template>
   <div class="w-full">
-    <Header />
+    <PageHeader />
     <slot />
   </div>
 </template>
