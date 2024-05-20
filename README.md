@@ -1,10 +1,10 @@
-# Nuxt 3 Minimal Starter
+# Interview Assignment
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This project was created for interview tasks and also to practice Tailwind CSS for myself.
 
 ## Setup
 
-Make sure to install the dependencies:
+install the dependencies:
 
 ```bash
 # npm
@@ -29,7 +29,7 @@ Start the development server on `http://localhost:3000`:
 npm run dev
 
 # pnpm
-pnpm run dev
+pnpm dev
 
 # yarn
 yarn dev
@@ -56,6 +56,22 @@ yarn build
 bun run build
 ```
 
+Build prerender page for Github Page:
+
+```bash
+# npm
+npm run github-page
+
+# pnpm
+pnpm github-page
+
+# yarn
+yarn github-page
+
+# bun
+bun run github-page
+```
+
 Locally preview production build:
 
 ```bash
@@ -63,7 +79,7 @@ Locally preview production build:
 npm run preview
 
 # pnpm
-pnpm run preview
+pnpm preview
 
 # yarn
 yarn preview
@@ -71,5 +87,3 @@ yarn preview
 # bun
 bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
