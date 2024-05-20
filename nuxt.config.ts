@@ -54,6 +54,7 @@ export default defineNuxtConfig({
   },
 
   app: {
+    baseURL: '/digisalad-assignment/dist/',
     // By default asset folder will be "/_nuxt/", it will be ignored by Github Page, so here we rename it
     buildAssetsDir: '/static/',
     head: {
