@@ -2,6 +2,8 @@
 
 This project was created for interview tasks and also to practice Tailwind CSS for myself.
 
+[Demo](https://yuskawu.github.io/digisalad-assignment/dist/)
+
 ## Setup
 
 install the dependencies:
