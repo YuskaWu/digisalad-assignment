@@ -13,35 +13,19 @@ import LettuceSvgUrl from '@/assets/image/ingredient-lettuce.svg?url'
 import TomatoSvgUrl from '@/assets/image/ingredient-tomato.svg?url'
 import WatermelonSvgUrl from '@/assets/image/ingredient-watermelon.svg?url'
 
-import { ref, watch } from '#imports'
+import { cn } from '@/utils/tailwind'
 
 defineEmits<{ 'update:visible': [visible: boolean] }>()
-const visible = defineModel<boolean>('visible')
-
-const root = ref<HTMLDivElement>()
-
-watch(visible, () => {
-  if (!root.value) {
-    return
-  }
-
-  if (visible.value) {
-    root.value.style.zIndex = '20'
-    root.value.style.opacity = '100'
-  }
-  else {
-    root.value.style.opacity = '0'
-    setTimeout(() => {
-      root.value!.style.zIndex = '-1'
-    }, 300)
-  }
-})
+defineModel<boolean>('visible')
 </script>
 
 <template>
   <div
     ref="root"
-    class="menu-bg fixed left-0 top-0 z-[-1] flex size-full items-center justify-center opacity-0 transition-opacity duration-300"
+    :class="cn(
+      'menu-bg fixed left-0 top-0 z-20 pointer-events-none flex size-full items-center justify-center opacity-0 transition-opacity duration-300',
+      visible && 'opacity-100 pointer-events-auto'
+    )"
   >
     <div class="absolute left-0 top-0 w-full">
       <div class="m-auto flex h-20 max-w-[90rem] items-center px-8 lg:px-20">
