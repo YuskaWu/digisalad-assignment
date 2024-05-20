@@ -1,4 +1,7 @@
+import fs from 'fs'
 import type { NuxtPage } from '@nuxt/schema'
+
+const isGithubPage = process.env.GITHUB_PAGE === 'true'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -50,6 +53,20 @@ export default defineNuxtConfig({
       }
 
       removePages(pages)
+    },
+    'nitro:build:public-assets'() {
+      // add .nojekyll file inside dist folder so that github page won't ignore the files which name is starting with "_"
+      // see https://clairechang.tw/2023/10/03/nuxt3/nuxt-v3-static-site-generation
+      if (!isGithubPage) {
+        return
+      }
+      fs.closeSync(fs.openSync('dist/.nojekyll', 'w'))
+    }
+  },
+
+  nitro: {
+    output: {
+      publicDir: isGithubPage ? 'dist' : '.output/public'
     }
   },
 
