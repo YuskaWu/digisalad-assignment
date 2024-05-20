@@ -54,6 +54,8 @@ export default defineNuxtConfig({
   },
 
   app: {
+    // By default asset folder will be "/_nuxt/", it will be ignored by Github Page, so here we rename it
+    buildAssetsDir: '/static/',
     head: {
       htmlAttrs: {
         lang: 'zh-TW'
