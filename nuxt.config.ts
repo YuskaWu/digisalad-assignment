@@ -54,6 +54,7 @@ export default defineNuxtConfig({
 
       removePages(pages)
     },
+
     'nitro:build:public-assets'() {
       // add .nojekyll file inside dist folder so that github page won't ignore the files which name is starting with "_"
       // see https://clairechang.tw/2023/10/03/nuxt3/nuxt-v3-static-site-generation
@@ -66,14 +67,15 @@ export default defineNuxtConfig({
 
   nitro: {
     output: {
+      // https://nitro.unjs.io/config#output
       publicDir: isGithubPage ? 'dist' : '.output/public'
     }
   },
 
   app: {
-    baseURL: '/digisalad-assignment/dist/',
+    baseURL: isGithubPage ? '/digisalad-assignment/dist/' : '/',
     // By default asset folder will be "/_nuxt/", it will be ignored by Github Page, so here we rename it
-    buildAssetsDir: '/static/',
+    buildAssetsDir: isGithubPage ? '/static/' : '/_nuxt/',
     head: {
       htmlAttrs: {
         lang: 'zh-TW'
