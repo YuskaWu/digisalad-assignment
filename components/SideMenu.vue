@@ -71,8 +71,9 @@ watch(visible, () => {
             >
             <div class=" flex flex-col gap-2">
               <span class="leading-5 tracking-[0.1125em]">EMPOWERING BRANDS</span>
-              <span class=" text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">
+              <span class=" relative text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">
                 ABOUT US
+                <span class="absolute bottom-0 size-2.5 -translate-y-2 translate-x-2 rounded-full bg-accent" />
               </span>
             </div>
           </div>
@@ -88,8 +89,9 @@ watch(visible, () => {
             >
             <div class=" flex flex-col gap-2">
               <span class="leading-5 tracking-[0.1125em]">CASE STUDIES</span>
-              <span class=" text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">
+              <span class=" relative text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">
                 WORKS
+                <span class="absolute bottom-0 size-2.5 -translate-y-2 translate-x-2 rounded-full bg-primary" />
               </span>
             </div>
           </div>
@@ -109,8 +111,9 @@ watch(visible, () => {
             >
             <div class=" flex flex-col gap-2">
               <span class="leading-5 tracking-[0.1125em]">BE COOL WITH US</span>
-              <span class=" text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">
+              <span class="relative text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">
                 CAREERS
+                <span class="absolute bottom-0 size-2.5 -translate-y-2 translate-x-2 rounded-full bg-accent" />
               </span>
             </div>
           </div>
@@ -127,8 +130,9 @@ watch(visible, () => {
             >
             <div class=" flex flex-col gap-2">
               <span class="leading-5 tracking-[0.1125em]">OUR STRATEGIES</span>
-              <span class=" text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">
+              <span class="relative text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">
                 INSIGHTS
+                <span class="absolute bottom-0 size-2.5 -translate-y-2 translate-x-2 rounded-full bg-accent" />
               </span>
             </div>
           </div>
@@ -148,8 +152,9 @@ watch(visible, () => {
             >
             <div class=" flex flex-col gap-2">
               <span class="leading-5 tracking-[0.1125em]">AREAS OF EXPERTISE</span>
-              <span class=" text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">
+              <span class="relative text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">
                 SERVICES
+                <span class="absolute bottom-0 size-2.5 -translate-y-2 translate-x-2 rounded-full bg-accent" />
               </span>
             </div>
           </div>
@@ -159,8 +164,9 @@ watch(visible, () => {
           class="flex w-full flex-col justify-center gap-2 rounded-3xl bg-white  p-8 text-primary lg:h-1/3"
         >
           <span class="leading-5 tracking-[0.1125em] text-black">START YOUR JOURNEY WITH US</span>
-          <span class=" text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">
+          <span class="relative text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">
             CONTACT
+            <span class="absolute bottom-0 size-2.5 -translate-y-2 translate-x-2 rounded-full bg-accent" />
           </span>
         </div>
       </div>
