@@ -39,11 +39,11 @@
     "stylelint-config-standard-vue": "^1.0.0"
   },
   "lint-staged": {
-    "*.js": "eslint",
-    "*.ts": "eslint",
-    "*.vue": "eslint",
-    "*.css": "stylelint",
-    "*.scss": "stylelint",
-    "*.md": "prettier"
+    "!(dist/**/*)*.js": "eslint",
+    "!(dist/**/*)*.ts": "eslint",
+    "!(dist/**/*)*.vue": "eslint",
+    "!(dist/**/*)*.css": "stylelint",
+    "!(dist/**/*)*.scss": "stylelint",
+    "!(dist/**/*)*.md": "prettier"
   }
 }
