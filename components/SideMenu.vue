@@ -48,6 +48,7 @@ watch(visible, () => {
         <LogoSvg class="max-w-[7.5rem] text-white" />
         <button
           class="ml-auto w-[1.875rem] text-white"
+          aria-label="close menu"
           @click="$emit('update:visible', false)"
         >
           <CloseSvg class="w-[1.875rem]" />
@@ -64,7 +65,10 @@ watch(visible, () => {
           :style="`background-image: url('${BgImage1Url}')`"
         >
           <div class="flex flex-wrap gap-6">
-            <img :src="LettuceSvgUrl">
+            <img
+              :src="LettuceSvgUrl"
+              alt="lettuce"
+            >
             <div class=" flex flex-col gap-2">
               <span class="leading-5 tracking-[0.1125em]">EMPOWERING BRANDS</span>
               <span class=" text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">
@@ -78,7 +82,10 @@ watch(visible, () => {
           :style="`background-image: url('${BgImage4Url}')`"
         >
           <div class="flex flex-wrap gap-6">
-            <img :src="TomatoSvgUrl">
+            <img
+              :src="TomatoSvgUrl"
+              alt="tomato"
+            >
             <div class=" flex flex-col gap-2">
               <span class="leading-5 tracking-[0.1125em]">CASE STUDIES</span>
               <span class=" text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">
@@ -96,7 +103,10 @@ watch(visible, () => {
           :style="`background-image: url('${BgImage2Url}')`"
         >
           <div class="flex flex-wrap gap-6">
-            <img :src="CheeseSvgUrl">
+            <img
+              :src="CheeseSvgUrl"
+              alt="cheese"
+            >
             <div class=" flex flex-col gap-2">
               <span class="leading-5 tracking-[0.1125em]">BE COOL WITH US</span>
               <span class=" text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">
@@ -111,7 +121,10 @@ watch(visible, () => {
           :style="`background-image: url('${BgImage5Url}')`"
         >
           <div class="flex flex-wrap gap-6">
-            <img :src="GherkinSvgUrl">
+            <img
+              :src="GherkinSvgUrl"
+              alt="gherkin"
+            >
             <div class=" flex flex-col gap-2">
               <span class="leading-5 tracking-[0.1125em]">OUR STRATEGIES</span>
               <span class=" text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">
@@ -129,7 +142,10 @@ watch(visible, () => {
           :style="`background-image: url('${BgImage3Url}')`"
         >
           <div class="flex flex-wrap gap-6">
-            <img :src="WatermelonSvgUrl">
+            <img
+              :src="WatermelonSvgUrl"
+              alt="watermelon"
+            >
             <div class=" flex flex-col gap-2">
               <span class="leading-5 tracking-[0.1125em]">AREAS OF EXPERTISE</span>
               <span class=" text-[2rem]/[2.5rem] font-bold tracking-[0.115em]">

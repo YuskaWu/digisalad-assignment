@@ -13,12 +13,12 @@ import QuoteLeftSvgUrl from '@/assets/image/quote-left.svg?url'
       <div class="flex flex-col items-center text-white">
         <img
           :src="FounderImageUrl"
-          alt="Tony NG"
+          alt="founder"
           class="mb-9 rounded-full"
         >
-        <h4 class="mb-2 text-[1.25rem] font-bold leading-6 tracking-widest">
+        <div class="mb-2 text-[1.25rem] font-bold leading-6 tracking-widest">
           TONY NG
-        </h4>
+        </div>
         <p class="italic leading-4 tracking-[0.125em]">
           Founder & Creative Director
         </p>

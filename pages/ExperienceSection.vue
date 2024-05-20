@@ -23,7 +23,6 @@ import CustomersImageUrl from '@/assets/image/customers.webp?url'
     <img
       :src="CustomersImageUrl"
       alt="customers"
-      class=""
     >
   </section>
 </template>

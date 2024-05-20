@@ -33,6 +33,7 @@ onMounted(() => {
     <div class="relative m-auto flex max-w-[71rem] items-center gap-4">
       <button
         class="hidden size-14 shrink-0 items-center justify-center rounded-full bg-primary fill-white transition-colors hover:bg-primary-400 lg:flex"
+        aria-label="previous"
         @click="emblaApi?.scrollPrev()"
       >
         <LeftArrowSvg class="size-6" />
@@ -54,9 +55,9 @@ onMounted(() => {
               alt="mobile app showcase"
             >
             <div class="order-1 m-auto text-center lg:order-2 lg:text-left">
-              <h4 class="mb-6 font-bold leading-5 tracking-[0.125em]">
+              <div class="mb-6 font-bold leading-5 tracking-[0.125em]">
                 HIGHLIGHTED SHOWCASE
-              </h4>
+              </div>
               <h2 class="mb-10">
                 <UnderlineText
                   dot
@@ -86,6 +87,7 @@ onMounted(() => {
 
       <button
         class=" hidden size-14 shrink-0 items-center justify-center rounded-full bg-primary fill-white transition-colors hover:bg-primary-400 lg:flex"
+        aria-label="next"
         @click="emblaApi?.scrollNext()"
       >
         <RightArrowSvg class="size-6" />

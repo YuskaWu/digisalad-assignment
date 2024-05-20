@@ -121,6 +121,7 @@ onUnmounted(() => {
       <img
         class="mb-3 size-[4.0625rem]"
         :src="DishesImageUrl"
+        alt="dishes"
       >
       <p class="mb-8 text-[0.875rem]/[1.0625rem] tracking-[0.143em] text-white">
         TASTE US NOW!

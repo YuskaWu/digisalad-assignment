@@ -18,24 +18,12 @@ import AwardImageUrl from '@/assets/image/app-award.webp?url'
       </div>
       <div class=" grid grid-cols-2 grid-rows-2 items-center gap-x-10 gap-y-2">
         <img
+          v-for="index in 4"
+          :key="index"
           class="w-[17.75rem]"
           :src="AwardImageUrl"
           loading="lazy"
-        >
-        <img
-          class="w-[17.75rem]"
-          :src="AwardImageUrl"
-          loading="lazy"
-        >
-        <img
-          class="w-[17.75rem]"
-          :src="AwardImageUrl"
-          loading="lazy"
-        >
-        <img
-          class="w-[17.75rem]"
-          :src="AwardImageUrl"
-          loading="lazy"
+          alt="award"
         >
       </div>
     </div>

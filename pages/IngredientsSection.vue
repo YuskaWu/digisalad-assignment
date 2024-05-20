@@ -58,12 +58,13 @@ const ingredients = [
           <img
             :src="ingred.svg"
             loading="lazy"
+            alt="ingredient"
           >
         </div>
 
-        <h4 class="h-14 w-52 text-center text-xl font-bold leading-6 tracking-widest text-white">
+        <div class="h-14 w-52 text-center text-xl font-bold leading-6 tracking-widest text-white">
           {{ ingred.title }}
-        </h4>
+        </div>
 
         <p class="mb-8 text-center font-normal tracking-[0.0625em] text-white">
           Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum.
@@ -71,6 +72,7 @@ const ingredients = [
         </p>
 
         <a
+          href="#"
           class="
             cursor-pointer rounded-full border-2 border-solid border-white px-8 py-4 text-[0.875rem] font-bold tracking-[0.16em] text-white
             transition-colors hover:border-secondary hover:bg-secondary"
